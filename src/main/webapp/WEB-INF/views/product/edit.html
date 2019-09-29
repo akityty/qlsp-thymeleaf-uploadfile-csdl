@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/product/layout::head">
+</head>
+<body>
+<div>
+    <form th:action="@{/product/edit}" method="post" enctype="multipart/form-data">
+        <div>
+            <span>Id: </span>
+            <input type="text" id="id" name="id" th:value="${product.id}">
+        </div>
+        <div>
+            <span>Name: </span>
+            <input type="text" id="name" name="name" th:value="${product.name}">
+        </div>
+        <div>
+            <span>price: </span>
+            <input type="text" id="price" name="price" th:value="${product.price}">
+        </div>
+        <div>
+            <span>Description: </span>
+            <input type="text" id="description" name="description" th:value="${product.description}">
+        </div>
+        <div>
+            <span>Supplier: </span>
+            <input type="text" id="supplier" name="supplier" th:value="${product.supplier}">
+        </div>
+        <div>
+            <span>Picture: </span>
+            <input type="file" name="picture" id="picture" th:text="${product.picture}">
+            <img width="50px" height="50px" th:src="@{'/i/' + ${product.picture}}">
+        </div>
+        <div>
+            <input type="submit" value="Edit">
+        </div>
+    </form>
+</div>
+</body>
+</html>
